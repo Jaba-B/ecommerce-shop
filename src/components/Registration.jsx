@@ -22,14 +22,15 @@ function Registration() {
     })
 
     return (
-        <div className="w-full h-screen bg-blue flex flex-col justify-center items-center">
-            <div className="flex flex-col justify-center items-center">
+        <div className="w-full h-screen bg-blue flex flex-col justify-center items-center lg:flex-row lg:justify-evenly lg:pb-[130px]">
+            <div className="flex flex-col justify-center items-center lg:mb-[0px] lg:w-[500px]">
                 <BiRegistered className="h-[150px] w-[150px] fill-turquoise mb-5"/>
                 <h1 className="text-gold text-2xl text-center mb-10 mx-2 font-semibold">Welcome to my React-TailwindCSS project</h1>
                 <p className="text-lg text-center">To see the website, fill required registration fields. In purpose to log in, your <span className="text-xl font-bold">Username</span> and <span className="text-xl font-bold">Password</span> will be saved in <span className="text-xl font-bold">Local Storage</span>.</p>
             </div>
             <div className="mx-2">
-                    <form onSubmit={handleSubmit} autoComplete="off" className="mx-auto h-[400px] flex flex-col justify-between w-[340px] my-10">
+                    <form onSubmit={handleSubmit} autoComplete="off" className="mx-auto h-[400px] flex flex-col justify-between my-10 w-[340px] lg:w-[400px]">
+                        <p className="text-xl text-center my-10 hidden lg:block">Fill The Form</p>
                         <div className="w-full flex justify-between my-3">
                             <label htmlFor="name"><span>Name</span></label>
                             <input 
