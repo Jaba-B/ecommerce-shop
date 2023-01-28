@@ -2,13 +2,11 @@ import React from "react";
 import { useFormik } from "formik";
 import { schema } from "../yupSchema";
 import {BiRegistered} from 'react-icons/bi'
+import { Link, Router } from 'react-router-dom'
 
-const onSubmit = () => {
-    console.log('Submited')
-}
 
 function Registration() {
-    const { values, handleBlur, errors, touched, handleChange, handleSubmit, resetForm} = useFormik({
+    const { values, handleBlur, errors, touched, isValid, dirty, handleChange, handleSubmit, resetForm} = useFormik({
         initialValues: {
             name: '',
             age: '',
@@ -18,7 +16,6 @@ function Registration() {
             confirmPassword: '',
         },
         validationSchema: schema,
-        onSubmit,
     })
 
     return (
@@ -98,12 +95,14 @@ function Registration() {
                         </div>
                         {errors.confirmPassword && touched.confirmPassword && <p className="text-xs text-red-600 flex justify-end w-full mt-[-7px]">{errors.confirmPassword}</p>}
                         <div className="w-full flex justify-evenly mt-7">
-                            <button type="button" className="text-white w-[80px] h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all"
+                            <button type="submit" className="text-white w-[80px] h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all"
+                                disabled={!(values.isValid && values.dirty)}
                                 onClick={() => {
                                    localStorage.setItem('userName', values.userName)
                                    localStorage.setItem('password', values.password)
+                                   
                                 }}
-                            >Submit</button>
+                            ><Link to={'/login'}>Submit</Link></button>
                             <button type="reset" className="text-white w-[80px] h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all" onClick={resetForm}>Reset</button>
                         </div>
                     </form>

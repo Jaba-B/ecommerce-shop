@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import {RiLoginCircleFill} from 'react-icons/ri'
+import { Link } from 'react-router-dom'
 
 function LogIn() {
     const [ submit, setSubmit ] = useState(true)
@@ -22,25 +23,27 @@ function LogIn() {
                     <label htmlFor="password"><span>Password</span></label>
                     <input ref={passwordRef} type="text" id="password" placeholder="Write your password" className="text-center rounded-md"/>
                 </div>
-                <div className="w-full flex justify-evenly mt-7">
-                    <button type="button" className="text-white w-[80px] h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all" 
-                        onClick={() => {
-                            const actualUserName = localStorage.getItem('userName');
-                            const actualPassword = localStorage.getItem('password');
-                            const currentUserName = userNameRef.current.value;
-                            const currentPassword = passwordRef.current.value;
-                            if(currentUserName === actualUserName && currentPassword === actualPassword) {
-                                // here will be home-page link
-                            } else { setSubmit(!submit)}
-                        }}
-                    >Submit</button>
-                    {!submit ? <p className="text-xs text-red-600 my-2">Your Username or Password is incorrect</p> : ''}
-                    <button type="button" className="text-white w-[80px] h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all"
-                        onClick={() => {
-                            setForget(!forget)
-                        }}
-                    >Forget</button>
-                    {forget ? <p>Username: {localStorage.getItem('userName')} password: {localStorage.getItem('password')}</p> : ''}
+                <div>
+                    <div className="w-full flex justify-evenly mt-7">
+                        <button type="submit" className="text-white w-[80px] h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all" 
+                            onClick={() => {
+                                const actualUserName = localStorage.getItem('userName');
+                                const actualPassword = localStorage.getItem('password');
+                                const currentUserName = userNameRef.current.value;
+                                const currentPassword = passwordRef.current.value;
+                                if(!(currentUserName === actualUserName && currentPassword === actualPassword)) {
+                                    setSubmit(!submit)
+                                }
+                            }}
+                        ><Link to={'/products'}>Submit</Link></button>
+                        {!submit ? <p className="text-xs text-red-600 my-2">Your Username or Password is incorrect</p> : ''}
+                        <button type="button" className="text-white w-[80px] h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all"
+                            onClick={() => {
+                                setForget(!forget)
+                            }}
+                        >Forget</button>
+                    </div>
+                    {forget ? <p className="block mt-2 text-center text-red-600 text-sm w-full">Username: {localStorage.getItem('userName')} password: {localStorage.getItem('password')}</p> : ''}
                 </div>
             </form>
         </div>

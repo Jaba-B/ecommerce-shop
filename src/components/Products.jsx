@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'
 
 function Products () {
     const [ data, setData ] = useState([]);
@@ -74,7 +75,7 @@ function Products () {
                             <img src={product.image} alt={product.title} height={350} className="rounded-lg h-[350px] px-2" />
                             <p className="px-1 text-center font-bold">{product.title}</p>
                             <span className="font-bold">${product.price}</span>
-                            <a href='' className="flex justify-center items-center mt-2 text-white w-[80px] h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all">Details</a>
+                            <Link to={`/products/${product.id}`} className="flex justify-center items-center mt-2 text-white w-[80px] h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all">Details</Link>
                         </div>
                         )
                     })}
@@ -86,8 +87,7 @@ function Products () {
     return(
         <div className='w-full bg-blue min-h-screen'>
             <div className="w-full">
-                {/* {loading ? <Loading /> : <ShowProducts />} */}
-                <ShowProducts />
+                {loading ? <Loading /> : <ShowProducts />}
             </div>
         </div>
     )
