@@ -32,7 +32,7 @@ function Feedbacks () {
                     )
                 })}
             </div>
-            <div className='w-full my-7 flex justify-center items-center'>
+            <div className='w-full py-7 flex justify-center items-center'>
                 <button
                     onClick={() => {
                         setFeedback(!feedback)
