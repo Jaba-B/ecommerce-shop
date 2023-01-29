@@ -1,0 +1,12 @@
+const feedbacksMock = [
+    {id: 1, feedback: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu egestas nunc, ac pharetra urna. Nulla lacinia a ante quis porttitor. Donec eget dapibus arcu, eget blandit risus. Maecenas at posuere sapien, eu ultricies ante. Fusce porttitor aliquam metus, vitae vulputate ex mattis sed. Vivamus sit amet lorem ut est ultrices hendrerit vel ut nisl.'},
+    {id: 2, feedback: 'Vivamus sit amet lorem ut est ultrices hendrerit vel ut nisl. Aenean eget tellus nunc. Nunc quis elit nunc. Cras erat eros, egestas at sem quis, ullamcorper cursus tortor.'},
+    {id: 3, feedback: 'Duis sit amet tempor leo, eu vestibulum arcu. Nam molestie ipsum eget mauris laoreet vulputate. Nulla quis quam nisl. Mauris ultricies neque at massa ullamcorper, volutpat ultrices mi faucibus. Sed sodales justo a dui porta, vel sodales orci cursus.'},
+    {id: 4, feedback: 'Aenean pharetra interdum aliquam. Duis fermentum bibendum tellus et vulputate. Nam porttitor metus et libero consectetur rutrum. Vivamus posuere congue sapien, eget fringilla velit interdum quis. Morbi mollis gravida risus, eget auctor sem posuere nec. Mauris nec fringilla nisi. Suspendisse sodales luctus dolor eu imperdiet. Vivamus sit amet augue interdum, semper ligula et, tincidunt sem.'},
+    {id: 5, feedback: 'Suspendisse sodales luctus dolor eu imperdiet. Vivamus sit amet augue interdum, semper ligula et, tincidunt sem. Donec pharetra ut dui ac sollicitudin. Sed dapibus enim odio, in fringilla nibh dictum in. '},
+    {id: 6, feedback: 'Cras consequat neque in odio sollicitudin, vitae ultrices lacus aliquet. Nam in sapien feugiat, vulputate enim id, venenatis magna. Vestibulum feugiat dignissim diam, in mollis ligula tempus at. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.'},
+    {id: 7, feedback: 'Nunc id massa iaculis risus imperdiet tincidunt quis ac odio. Etiam eget dictum turpis, id varius nunc. Proin feugiat tincidunt dolor sit amet finibus. Praesent varius dui quis est fringilla lobortis. Pellentesque ut lorem nibh.'},
+    {id: 8, feedback: 'Sed tincidunt blandit velit, id pulvinar tortor semper nec. Duis ullamcorper fringilla facilisis. Ut nec feugiat ex. Maecenas ac dolor in sapien porttitor porttitor. Pellentesque luctus ipsum eros, nec faucibus sem vulputate eget.'}
+]
+
+export default feedbacksMock
