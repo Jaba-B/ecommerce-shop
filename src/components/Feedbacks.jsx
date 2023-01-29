@@ -13,7 +13,7 @@ function Feedbacks () {
     function TextArea () {
         return (
             <div className='w-full flex flex-col justify-center items-center'>
-                <textarea ref={feedbackText} placeholder='Write your feedback' className='w-[400px] min-h-[100px] text-gold p-2 border border-gold h-auto rounded-lg bg-blue focus:outline-none focus:border-2'></textarea>
+                <textarea ref={feedbackText} placeholder='Write your feedback' className='w-[380px] min-h-[100px] text-gold p-2 border border-gold h-auto rounded-lg bg-blue focus:outline-none focus:border-2'></textarea>
                 <button 
                     onClick={addFeedback}
                     className='my-4 text-white px-2 w-auto h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all'
