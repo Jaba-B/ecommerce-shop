@@ -21,3 +21,111 @@ a {
 p, span {
   color: #BFA181;
 }
+
+.slick-next:before {
+  display: none;
+}
+
+.slick-prev:before {
+  display: none;
+}
+
+.carousel-wrapper div:nth-child(4) {
+  top: 430px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.slick-active div {
+  background-color: #881798;
+  height: 0px;
+}
+
+.carousel-wrapper div:nth-child(4) ul {
+  height: 2px;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.carousel-wrapper div:nth-child(4) ul li {
+  margin: 0;
+  flex-grow: 1;
+}
+
+.carousel-arrow {
+  fill: #bfa181 !important;
+  border-color: #bfa181 !important;
+}
+
+@media screen and (max-width: 640px) {
+  .carousel-wrapper .slick-dots {
+    margin-left: -75px;
+    height: 70px !important;
+    align-items: center;
+  }
+  .carousel-wrapper .slick-track {
+    height: 340px;
+  }
+  .carousel-wrapper .slick-active {
+    height: 370px;
+  }
+  .carousel-wrapper .slick-dots ul {
+    margin: -25px 5px 0 5px !important;
+  }
+  .carousel-wrapper div:nth-child(4) {
+    top: 350px;
+    left: 75px;
+    height: 370px
+  }
+  .carousel-wrapper div:nth-child(4) ul {
+    max-width: 178px;
+  }
+  .carousel-wrapper div:nth-child(4) ul li {
+    width: 15.72px;
+    height: 20px;
+    color: #bfa181;
+  }
+  .carousel-wrapper div:nth-child(4) ul li div {
+    width: 15.72px !important;
+    margin-right: 0px !important;
+  }
+  .slick-active div {
+    width: 100%;
+    color: #bfa181;
+    font-weight: bolder;
+  }
+  .slick-dots ul li {
+    margin: 0;
+    flex-grow: 0;
+  }
+  .carousel-arrow {
+    fill: #bfa181 !important;
+    border-color: #bfa181 !important;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .carousel-wrapper .slick-list {
+    width: 384px;
+    height: 370px;
+  }
+  .left-arrow {
+    position: absolute;
+    left: -17px;
+  }
+  .carousel-wrapper div:nth-child(4) ul {
+    background-color: grey;
+    border-radius: 20px;
+  }
+  .slick-active div {
+    background-color: #bfa181;
+    border-radius: 20px;
+  }
+  .slick-slide {
+    display: block !important;
+  }
+}
+

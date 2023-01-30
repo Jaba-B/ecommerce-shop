@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Registration from "./components/Registration"
 import LogIn from "./components/LogIn"
 import Header from "./components/Header"
+import Home from "./components/Home"
 import Products from "./components/Products"
 import ProductDetail from "./components/ProductDetail"
 import Feedbacks from "./components/Feedbacks"
@@ -15,6 +16,7 @@ function App() {
         <Route path='/products' element={<><Header /><Products /></>}></Route>
         <Route path='/products/:id'  element={<><Header /><ProductDetail /></>}/>
         <Route path='/feedbacks'  element={<><Header /><Feedbacks /></>}/>
+        <Route path='/home'  element={<><Header /><Home /></>}/>
       </Routes>
     </div>
   );
