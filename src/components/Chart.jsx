@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import chartMock from '../mocks/chart.mock'
-import { SlArrowDown } from 'react-icons/sl'
+import {SlArrowDown} from 'react-icons/sl'
+import {chartMock} from '../mocks/chart.mock'
 
 import {
   Chart as ChartJS,
@@ -52,27 +52,25 @@ export const Chart = () => {
     <div
       className={`w-full h-full ${
         show ? 'lg:h-[330px] h-[197px] ' : 'h-auto'
-      }`}
+      } bg-lightModeBg rounded-2xl my-2`}
     >
-      <div className="flex items-center pl-5 rounded-2xl">
+      <div className="flex justify-center items-center pl-5 rounded-2xl">
         {show ? (
           <div onClick={() => setShow(!show)}>
-            <SlArrowDown className="ml-1 mr-3 fill-[#bfa181] pt-1 cursor-pointer" />
+            <SlArrowDown className="mr-3 fill-gold pt-1 cursor-pointer" />
           </div>
         ) : (
           <div onClick={() => setShow(!show)}>
-            <SlArrowDown className="mr-3 fill-[#bfa181] pt-1 rotate-180 cursor-pointer" />
+            <SlArrowDown className="mr-3 fill-gold pt-1 rotate-180 cursor-pointer" />
           </div>
         )}
-        <span>Visitors History (K)</span>
+        <span>Visitors History</span>
       </div>
       {show ? (
-        <div style={{ height: '100%', width: '100%', padding: '0 0 0 20px' }}>
+        <div style={{ height: '100%', width: '100%' }} className="flex justify-center">
           <Line style={{ margin: '0px' }} data={data} options={options}></Line>
         </div>
       ) : null}
     </div>
   )
 }
-
-export default Chart

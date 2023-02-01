@@ -20,12 +20,12 @@ const PrevArrow = (props) => {
     const { className, onClick } = props
     return (
       <div className={className} onClick={onClick}>
-        <AiOutlineArrowRight className="carousel-arrow p-2.5 w-9 h-9 border  rounded-full bg-inherit hover:bg-white hover:bg-opacity-50 sm:bg-lightModeBg right-16 cursor-pointer sm:right-2 rotate-180" />
+        <AiOutlineArrowRight className="carousel-arrow ml-[-17px] p-2.5 w-9 h-9 border  rounded-full bg-inherit hover:bg-white hover:bg-opacity-50 sm:bg-lightModeBg right-16 cursor-pointer sm:right-2 rotate-180" />
       </div>
     )
 }
 
-function Carousel() {
+export function Carousel() {
   const sliderRef = useRef()
     const settings = {
         dots: true,
@@ -85,7 +85,7 @@ function Carousel() {
         ],
       }
     return(
-        <div className="bg-blue w-full min-h-screen flex justify-center">
+        <div className="bg-blue w-full flex justify-center">
             <Slider {...settings}
                 className="carousel-wrapper w-72 h-[340px] sm:w-96 sm:h-96 bg-white rounded-xl"
                 ref={sliderRef}
