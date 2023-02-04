@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector} from 'react-redux';
+import { increment } from '../redux/cartSlice'
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom'
 import {FaShoppingCart} from 'react-icons/fa'
@@ -9,6 +11,13 @@ export function ProductDetail() {
     const {id} = useParams();
     const[product, setProduct] = useState([]);
     const [loading, setLoading] = useState(false);
+
+    const qty = useSelector((state) => state.cart.qty);
+    const dispatch = useDispatch()
+
+    function handleClick() {
+        dispatch(increment(qty));
+    }
 
     useEffect(() => {
         const getProduct = async () => {
@@ -40,7 +49,9 @@ export function ProductDetail() {
                     <p className="text-center mb-1">{product.description}</p>
                     <span className="text-xl font-bold my-3">Price: ${product.price}</span>
                     <div className="flex w-full justify-evenly pb-10">
-                        <button className="flex justify-center items-center px-1 mt-2 text-white w-auto h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all">
+                        <button className="flex justify-center items-center px-1 mt-2 text-white w-auto h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all"
+                            onClick={handleClick}
+                        >
                            <FaShoppingCart className='mr-2 pl-1'/> Add To Cart
                         </button>
                         <button className="flex justify-center items-center px-1 mt-2 text-white w-auto h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all">
