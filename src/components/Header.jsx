@@ -15,7 +15,9 @@ function Header () {
                     <Link to={'/products'} className="text-gold text-lg after:content-[''] after:block after:rounded-2xl after:h-[2px] after:w-0 after:mx-auto after:duration-300 after:hover:w-full after:bg-gold">Products</Link>
                     <Link to={'/feedbacks'} className="text-gold text-lg after:content-[''] after:block after:rounded-2xl after:h-[2px] after:w-0 after:mx-auto after:duration-300 after:hover:w-full after:bg-gold">Feedbacks</Link>
                 </div>
-                <button className='group flex justify-center items-center text-gold p-1 border-[1px] border-gold hover:bg-gold hover:text-white'><FaShoppingCart className='fill-gold mr-1 group-hover:fill-white'/>Cart ({qty})</button>
+                <button className='group flex justify-center items-center text-gold p-1 border-[1px] border-gold hover:bg-gold hover:text-white'>
+                    <Link to={'/cart'} className="flex items-center"><FaShoppingCart className='fill-gold mr-1 group-hover:fill-white'/>Cart ({qty})</Link>
+                </button>
             </div>
         </div>
     )

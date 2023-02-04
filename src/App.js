@@ -6,6 +6,7 @@ import Home from "./components/Home"
 import Products from "./components/Products"
 import ProductDetail from "./components/ProductDetail"
 import Feedbacks from "./components/Feedbacks"
+import Cart from "./components/Cart"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/products/:id'  element={<><Header /><ProductDetail /></>}/>
         <Route path='/feedbacks'  element={<><Header /><Feedbacks /></>}/>
         <Route path='/home'  element={<><Header /><Home /></>}/>
+        <Route path='/cart'  element={<><Header /><Cart /></>}/>
       </Routes>
     </div>
   );

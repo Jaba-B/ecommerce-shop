@@ -1,21 +1,21 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+import { cartProducts } from '../components/Cart'
 
 const initialState = {
-    qty: 0
+    cartItems: [],
+    qty: 0,
 }
-
-let cart = [];
 
 const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        increment(state, action) {
+        addToCart(state, action) {
             state.qty++;
-            cart.push(action.payload)
+            state.cartItems.push(action.payload);
         }
     }
 });
 
-export const { increment } = cartSlice.actions;
+export const { addToCart } = cartSlice.actions;
 export default cartSlice.reducer;

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector} from 'react-redux';
-import { increment } from '../redux/cartSlice'
+import { addToCart } from '../redux/cartSlice'
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom'
+import { cartProducts } from './Cart'
 import {FaShoppingCart} from 'react-icons/fa'
 import {BsCardList} from 'react-icons/bs'
 import {AiOutlineArrowLeft} from 'react-icons/ai'
@@ -12,11 +13,10 @@ export function ProductDetail() {
     const[product, setProduct] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const qty = useSelector((state) => state.cart.qty);
     const dispatch = useDispatch()
 
-    function handleClick() {
-        dispatch(increment(qty));
+    function handleClick(product) {
+        dispatch(addToCart(product));
     }
 
     useEffect(() => {
@@ -50,7 +50,7 @@ export function ProductDetail() {
                     <span className="text-xl font-bold my-3">Price: ${product.price}</span>
                     <div className="flex w-full justify-evenly pb-10">
                         <button className="flex justify-center items-center px-1 mt-2 text-white w-auto h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all"
-                            onClick={handleClick}
+                            onClick={() => handleClick(product)}
                         >
                            <FaShoppingCart className='mr-2 pl-1'/> Add To Cart
                         </button>
