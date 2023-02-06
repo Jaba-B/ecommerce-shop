@@ -55,7 +55,10 @@ export function ProductDetail() {
                            <FaShoppingCart className='mr-2 pl-1'/> Add To Cart
                         </button>
                         <button className="flex justify-center items-center px-1 mt-2 text-white w-auto h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all">
-                           <BsCardList className='mr-2 pl-1'/> Go To Cart
+                           <BsCardList className='mr-2 pl-1'/> 
+                           <Link to={'/cart'}>
+                            Go To Cart
+                           </Link>
                         </button>
                         <button className="flex flex-row justify-center items-center px-1 mt-2 text-white w-auto h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all">
                             <AiOutlineArrowLeft className='mr-2 pl-1'/>
