@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import {RiLoginCircleFill} from 'react-icons/ri'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function LogIn() {
     const [ submit, setSubmit ] = useState(true)
@@ -8,6 +8,12 @@ function LogIn() {
 
     const userNameRef = useRef(null);
     const passwordRef = useRef(null);
+
+    const navigate = useNavigate();
+
+    const loginSubmit = () => {
+        navigate('/home');
+    };
 
     return(
         <div className="flex flex-col justify-center items-center bg-blue w-full h-screen">
@@ -21,28 +27,30 @@ function LogIn() {
                 </div>
                 <div className="w-[400px] flex justify-evenly">
                     <label htmlFor="password"><span>Password</span></label>
-                    <input ref={passwordRef} type="text" id="password" placeholder="Write your password" className="text-center rounded-md"/>
+                    <input ref={passwordRef} type="password" id="password" placeholder="Write your password" className="text-center rounded-md"/>
                 </div>
                 <div>
                     <div className="w-full flex justify-evenly mt-7">
-                        <button type="submit" className="text-white w-[80px] h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all" 
+                        <button type="button" className="text-white w-[80px] h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all" 
                             onClick={() => {
                                 const actualUserName = localStorage.getItem('userName');
                                 const actualPassword = localStorage.getItem('password');
                                 const currentUserName = userNameRef.current.value;
                                 const currentPassword = passwordRef.current.value;
                                 if(!(currentUserName === actualUserName && currentPassword === actualPassword)) {
-                                    setSubmit(!submit)
+                                    setSubmit(false)
+                                } else {
+                                    loginSubmit()
                                 }
                             }}
-                        ><Link to={'/products'}>Submit</Link></button>
-                        {!submit ? <p className="text-xs text-red-600 my-2">Your Username or Password is incorrect</p> : ''}
+                        >Submit</button>
                         <button type="button" className="text-white w-[80px] h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all"
                             onClick={() => {
                                 setForget(!forget)
                             }}
                         >Forget</button>
                     </div>
+                    {submit ? '' : <p className="block mt-2 text-center text-red-600 text-sm w-full">Your Username or Password is incorrect</p>}
                     {forget ? <p className="block mt-2 text-center text-red-600 text-sm w-full">Username: {localStorage.getItem('userName')} password: {localStorage.getItem('password')}</p> : ''}
                 </div>
             </form>
