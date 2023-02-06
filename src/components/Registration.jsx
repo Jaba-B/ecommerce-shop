@@ -2,7 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import { schema } from "../yupSchema";
 import {BiRegistered} from 'react-icons/bi'
-import { Link, Router } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 function Registration() {
@@ -17,6 +17,12 @@ function Registration() {
         },
         validationSchema: schema,
     })
+
+    const navigate = useNavigate();
+
+    const registerSubmit = () => {
+        navigate('/login');
+    };
 
     return (
         <div className="w-full h-screen bg-blue flex flex-col justify-center items-center lg:flex-row lg:justify-evenly lg:pb-[130px]">
@@ -96,13 +102,13 @@ function Registration() {
                         {errors.confirmPassword && touched.confirmPassword && <p className="text-xs text-red-600 flex justify-end w-full mt-[-7px]">{errors.confirmPassword}</p>}
                         <div className="w-full flex justify-evenly mt-7">
                             <button type="submit" className="text-white w-[80px] h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all"
-                                disabled={!(values.isValid && values.dirty)}
+                                disabled={!(isValid && dirty)}
                                 onClick={() => {
-                                   localStorage.setItem('userName', values.userName)
-                                   localStorage.setItem('password', values.password)
-                                   
+                                   localStorage.setItem('userName', values.userName);
+                                   localStorage.setItem('password', values.password);
+                                   registerSubmit()
                                 }}
-                            ><Link to={'/login'}>Submit</Link></button>
+                            >Submit</button>
                             <button type="reset" className="text-white w-[80px] h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all" onClick={resetForm}>Reset</button>
                         </div>
                     </form>
