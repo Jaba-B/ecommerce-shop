@@ -24,11 +24,15 @@ export const Cart = () => {
         dispatch(removeCart(item))
     }
 
+    let subTotal = 0;
+
     return (
         <div className='w-full min-h-screen bg-blue flex flex-col items-center'>
             {cartItems.map((item) => {
                 const price = item.price;
                 let totalAmount = Math.round(item.itemQuantity*price* 100) / 100
+                subTotal += totalAmount;
+
                 return(
                     <div key={item.id} className='relative w-[382px] lg:w-[993px] p-2 bg-blue mb-4 lg: m-4'>
                         <div className='w-full h-auto flex flex-col lg:flex-row p-2 items-center border-2 border-gold'>
@@ -68,6 +72,7 @@ export const Cart = () => {
                     </div>
                 )
             })}
+            <p className='w-[366px] lg:w-[993px] text-xl font-bold text-end'>Subtotal ${subTotal}</p>
             <button className="flex flex-row justify-center items-center px-1 mt-2 text-white w-auto h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all">
                 <AiOutlineArrowLeft className='mr-2 pl-1'/>
                 <Link to={'/products'}>
