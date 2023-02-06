@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { decreaseCart, increaseCart, removeCart } from '../redux/cartSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -30,30 +30,35 @@ export const Cart = () => {
                 const price = item.price;
                 let totalAmount = Math.round(item.itemQuantity*price* 100) / 100
                 return(
-                    <div key={item.id} className='w-[382px] p-2 bg-blue mb-4'>
-                        <div className='w-full h-auto flex flex-col p-2 items-center border-2 border-gold'>
+                    <div key={item.id} className='relative w-[382px] lg:w-[993px] p-2 bg-blue mb-4 lg: m-4'>
+                        <div className='w-full h-auto flex flex-col lg:flex-row p-2 items-center border-2 border-gold'>
                             <img src={item.image} alt={item.title}  className="w-[200px] h-[200px] my-2"/>
-                            <span className='text-lg'>{item.title}</span>
-                            <span>{item.category}</span>
-                            <div className='flex'>
-                                <span className='mr-1'>Price:</span>
-                                <span>${price}</span>
+                            <div className='flex flex-col items-center lg:w-[432px]'>
+                                <span className='text-lg text-center'>{item.title}</span>
+                                <span>{item.category}</span>
                             </div>
-                            <div className='flex my-1'>
-                                <span>Quantity</span>
-                                <BiPlus className='w-6 h-6 mx-1 border border-gold fill-gold bg-inherit hover:fill-white hover:bg-gold cursor-pointer'
-                                    onClick={()=> handleIncreaseCart(item)}
-                                />
-                                <span>{item.itemQuantity}</span>
-                                <AiOutlineMinus className='w-6 h-6 mx-1 border border-gold fill-gold bg-inherit hover:fill-white hover:bg-gold cursor-pointer'
-                                    onClick={()=> handleDecreaseCart(item)}
-                                />
+                            <div className='flex flex-col items-center lg:mr-4'>
+                                <div className='flex'>
+                                    <span className='mr-1'>Price:</span>
+                                    <span>${price}</span>
+                                </div>
+                                <div className='flex my-1'>
+                                    <span>Quantity</span>
+                                    <BiPlus className='w-6 h-6 mx-1 border border-gold fill-gold bg-inherit hover:fill-white hover:bg-gold cursor-pointer'
+                                        onClick={()=> handleIncreaseCart(item)}
+                                    />
+                                    <span>{item.itemQuantity}</span>
+                                    <AiOutlineMinus className='w-6 h-6 mx-1 border border-gold fill-gold bg-inherit hover:fill-white hover:bg-gold cursor-pointer'
+                                        onClick={()=> handleDecreaseCart(item)}
+                                    />
+                                </div>
                             </div>
                             <div className='flex mb-2'>
                                 <span className='mr-1'>Total Amount:</span>
                                 <span>${totalAmount}</span>
                             </div>
-                            <button className="flex flex-row justify-center items-center px-1 mt-2 text-white w-auto h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all"
+                            <button 
+                                className="flex flex-row justify-center items-center px-1 mt-2 text-white w-auto h-[30px] rounded-2xl bg-turquoise hover:scale-125 transition-all lg:absolute lg:bottom-4 lg:right-4"
                                 onClick={() => handleRemoveCart(item)}
                             >
                                 <MdOutlineRemoveShoppingCart className='mr-2 pl-1'/>
