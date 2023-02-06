@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/cartSlice'
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom'
-import { cartProducts } from './Cart'
 import {FaShoppingCart} from 'react-icons/fa'
 import {BsCardList} from 'react-icons/bs'
 import {AiOutlineArrowLeft} from 'react-icons/ai'
